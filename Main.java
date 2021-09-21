@@ -1,12 +1,13 @@
 package com.company;
 
+import java.util.Scanner;
 
 class Complex{
     double real,img;
     Complex(){
 
     };
-    Complex(int real,int img){
+    Complex(double real,double img){
         this.real=real;
         this.img=img;
     }
@@ -40,15 +41,41 @@ class Complex{
 public class Main {
 
     public static void main(String[] args) {
-        Complex complex1=new Complex(5,3);
-        Complex complex2=new Complex(2,2);
-        Complex add=complex1.Complex_add(complex2);
-        System.out.println("Addition: "+"Real= "+add.real+" Imaginary= "+add.img);
-        Complex sub=complex1.Complex_sub(complex2);
-        System.out.println("Subtraction: "+"Real= "+sub.real+" Imaginary= "+sub.img);
-        Complex multiply=complex1.Complex_multiply(complex2);
-        System.out.println("Multiplication: "+"Real= "+multiply.real+" Imaginary= "+multiply.img);
-        Complex divide=complex1.Complex_div(complex2);
-        System.out.println("Division: "+"Real= "+divide.real+" Imaginary= "+divide.img);
+        Scanner s1 = new Scanner(System.in);
+        System.out.println("enter real part of first number");
+        double r1 = s1.nextDouble();
+        System.out.println("enter imaginary part of first number");
+        double i1 = s1.nextDouble();
+        System.out.println("enter real part of first number");
+        double r2 = s1.nextDouble();
+        System.out.println("enter imaginary part of second number");
+        double i2 = s1.nextDouble();
+        Complex complex1 = new Complex(r1, i1);
+        Complex complex2 = new Complex(r2, i2);
+        while (true) {
+            System.out.println("1.Addition" + "\n" + "2.Subtraction" + "\n" + "3.Multiplication" + "\n" + "4.Division" + "\n");
+            int n;
+            n=s1.nextInt();
+            switch (n) {
+                case 1:
+                    Complex add = complex1.Complex_add(complex2);
+                    System.out.println("Addition: " + "Real= " + add.real + " Imaginary= " + add.img);
+                    break;
+                case 2:
+                    Complex sub = complex1.Complex_sub(complex2);
+                    System.out.println("Subtraction: " + "Real= " + sub.real + " Imaginary= " + sub.img);
+                    break;
+                case 3:
+                    Complex multiply = complex1.Complex_multiply(complex2);
+                    System.out.println("Multiplication: " + "Real= " + multiply.real + " Imaginary= " + multiply.img);
+                    break;
+                case 4:
+                    Complex divide = complex1.Complex_div(complex2);
+                    System.out.println("Division: " + "Real= " + divide.real + " Imaginary= " + divide.img);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
